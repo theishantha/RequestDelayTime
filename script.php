@@ -38,9 +38,13 @@ if ($handle) {
 
     }else{
 
+                $sql1 = "SELECT transid FROM reqdelay";
+                if($array1[4] = $sql1 ){
+                    
+                }
     }
 
-        exit;
+        exit; 
 
     }
     

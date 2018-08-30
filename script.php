@@ -1,56 +1,42 @@
 <?php
 
-// $nbapilog = file('nbapi.log');
-// $nb_arr = array($nbapilog);
-// // $nbstring = join(" ", $nb_arr);
-// print_r($nb_arr);
-
-
 $handle = @fopen("nbapi.log", "r");
 
 if ($handle) {
     while (($buffer = fgets($handle, 4096)) !== false) {
 
-        // list($timeStamp, $ire1, $userName, $transId ,$message , $lastDataSet) = explode("|",$buffer);
-        // // echo $message;
-
         $array1 = explode("|", $buffer);
         // var_dump ($array1);
 
-        if ($array1[4] == 'REQUEST') {
-            $json_array = json_decode($array1[5],true);
-            // var_dump($json_array);
-            // echo $json_array["operation"];
+    if ($array1[4] == 'REQUEST') {
+                $json_array = json_decode($array1[5],true);
+                // var_dump($json_array);
+                // echo $json_array["operation"];
+                $operation = $json_array["operation"];
+                $phonenumber = $json_array["msisdn"];
 
 
 
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "selfcareapp";
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "selfcareapp";
 
-          // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-          // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+            // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
 
-            $sql = "INSERT INTO MyGuests (firstname, lastname, email)
-            VALUES ('John', 'Doe', 'john@example.com')";
+                $sql = "INSERT INTO reqdealy (dateandtime, userid, transid, operation_type, phonenumber, json_string)
+                VALUES ($array1[1], $array1[3], $array1[4], $operation, $phonenumber, $array1[5])";
 
-            if ($conn->query($sql) === true) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
+                mysqli_query($conn, $sql);
 
-            $conn->close();
-        
+    }else{
 
-
-
-        }
+    }
 
         exit;
 

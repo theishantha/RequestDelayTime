@@ -38,9 +38,10 @@ if ($handle) {
 
     }else{
 
-                $sql1 = "SELECT transid FROM reqdelay";
+                // $sql1 = "IF EXISTS ("SELECT * FROM INFORMATION_SCHEMA . COLUMNS
+                //     WHERE TABLE_NAME = 'prefix_topic' and column_name = 'topic_last_update');
                 if($array1[4] = $sql1 ){
-                    
+                
                 }
     }
 

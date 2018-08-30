@@ -29,9 +29,11 @@ if ($handle) {
                     die("Connection failed: " . $conn->connect_error);
                 }
 
+                var_dump($array1);
+                    
                 $sql = "INSERT INTO reqdealy (dateandtime, userid, transid, operation_type, phonenumber, json_string)
-                VALUES ($array1[1], $array1[3], $array1[4], $operation, $phonenumber, $array1[5])";
-
+                VALUES ('$array1[0]', '$array1[2]', '$array1[3]', '$operation', '$phonenumber', '$array1[5]')";
+                echo $sql;
                 mysqli_query($conn, $sql);
 
     }else{

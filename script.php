@@ -53,7 +53,7 @@ if ($handle) {
                 {
                     // var_dump($row);
 
-                $json_array = json_decode($array1[5],true);
+                $json_array = json_decode($array1[5], true);
                 // var_dump($json_array);
                 // echo $json_array["operation"];
                 $operation = $json_array["operation"];

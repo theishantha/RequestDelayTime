@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2018 at 04:35 AM
+-- Generation Time: Sep 02, 2018 at 03:48 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -36,7 +36,7 @@ CREATE TABLE `reqdealy` (
   `operation_type` varchar(50) NOT NULL,
   `phonenumber` int(10) NOT NULL,
   `json_string` text,
-  `reqdelay` text NOT NULL
+  `requestdelay` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -57,7 +57,7 @@ ALTER TABLE `reqdealy`
 -- AUTO_INCREMENT for table `reqdealy`
 --
 ALTER TABLE `reqdealy`
-  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

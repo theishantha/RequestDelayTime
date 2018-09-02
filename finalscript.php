@@ -1,4 +1,6 @@
 <?php
+
+// error hidding
 error_reporting(0);
 ini_set('display_errors', 0);
 
@@ -25,20 +27,23 @@ ini_set('display_errors', 0);
                 // capture REQUEST in here
                 if($array1[4] == "REQUEST"){
                     
-                    // var_dump($restime);
+                    // json decording 
                     $json_array = json_decode($array1[5], true);
                     // var_dump($json_array);
-            
+                    
+                    // variable dec
                     $operation = $json_array["operation"];
                     $phonenumber = $json_array["msisdn"];
                     // var_dump($operation, $phonenumber);
 
+                    // sql query for insert query
                     $sql = "INSERT INTO reqdealy (dateandtime, userid, transid, operation_type, phonenumber, json_string)
                                 VALUES ('$array1[0]', '$array1[2]', '$array1[3]', '$operation', '$phonenumber', '$array1[5]')";
-                                
+                    // con init            
                     mysqli_query($conn, $sql);
 
                     }else{
+                    //    existes query capture
                         $sql1 = "SELECT * FROM `reqdealy` WHERE `transid` = '$array1[3]'";
 
                         
@@ -52,6 +57,7 @@ ini_set('display_errors', 0);
                             $restime = $array1[0];
                             // var_dump($restime);
                             
+                            // timestamp diff calculating
                             function timestampdiff($reqtime, $restime){
                                 $datetime1 = new DateTime("@$reqtime");
                                 $datetime2 = new DateTime("@$restime");
@@ -62,6 +68,7 @@ ini_set('display_errors', 0);
                             $delaytime = & timestampdiff($reqtime, $restime);
                             // var_dump($delaytime); 
 
+                            // timestamp diff updated 
                             $sql2 = "UPDATE reqdealy SET requestdelay = '$delaytime' WHERE  transid = '$array1[3]'";
 
                             mysqli_query($conn, $sql2);

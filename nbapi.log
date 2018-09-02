@@ -1,5 +1,3 @@
 20180829 05:48:05|-|testuser|5b85e63e4ea83|REQUEST|{"userid":"testuser","password":"testpass","transid":"5b85e63e4ea83","operation":"deactivate_product","productcode":"17","msisdn":"773977057","con_type":"post"}
 
 20180829 05:48:07|-|testuser|5b85e63e4ea83|RESPONSE|{"transid":"5b85e63e4ea83","operation":"deactivate_product","msisdn":"773977057","productcode":"17","response":{"code":"0013","description":"Disconnection in progress"}}
-
-

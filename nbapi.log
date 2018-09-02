@@ -1,2 +1,5 @@
-20180829 03:37:16|-|selfcare|5b85c7939d4fc|RESPONSE|{"transid":"5b85c7939d4fc","operation":"get_product_status","msisdn":"763234109","response":{"code":"0000","description":"Success","result":[]}}
+20180829 05:48:05|-|testuser|5b85e63e4ea83|REQUEST|{"userid":"testuser","password":"testpass","transid":"5b85e63e4ea83","operation":"deactivate_product","productcode":"17","msisdn":"773977057","con_type":"post"}
+
+20180829 05:48:07|-|testuser|5b85e63e4ea83|RESPONSE|{"transid":"5b85e63e4ea83","operation":"deactivate_product","msisdn":"773977057","productcode":"17","response":{"code":"0013","description":"Disconnection in progress"}}
+
 

@@ -1,2 +1,2 @@
-20180829 03:37:14|-|selfcare|5b85c7939d4fc|REQUEST|{"userid":"selfcare","password":"123456","transid":"5b85c7939d4fc","operation":"get_product_status","msisdn":"763234109","con_type":"PREPAID"}
 20180829 03:37:16|-|selfcare|5b85c7939d4fc|RESPONSE|{"transid":"5b85c7939d4fc","operation":"get_product_status","msisdn":"763234109","response":{"code":"0000","description":"Success","result":[]}}
+

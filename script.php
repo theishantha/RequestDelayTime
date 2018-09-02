@@ -9,9 +9,9 @@ $dbname = "selfcareapp";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 
 
 $handle = @fopen("nbapi.log", "r");
@@ -41,7 +41,9 @@ if ($handle) {
 
     
         }else{
-                
+
+                $restime = $array1[0];
+
                 $sql1 = "SELECT * FROM `reqdealy` WHERE `transid` = '$array1[3]'";
                 // echo $sql1;
                 $result = mysqli_query($conn, $sql1);
@@ -52,6 +54,23 @@ if ($handle) {
                 if($row = mysqli_fetch_assoc($result))
                 {
                     // var_dump($row);
+                    $reqtime = $row['dateandtime'];
+                    
+                    // var_dump($reqtime);
+                    $restime = $array1[0];
+
+
+                // function timestampdiff($qw, $saw)
+                // {
+                //     $datetime1 = new DateTime("@$qw");
+                //     $datetime2 = new DateTime("@$saw");
+                //     $interval = $datetime1->diff($datetime2);
+                //     return $interval->format('%Hh %Im');
+                // }
+                // echo timestampdiff('1524794340', '1524803100');
+
+                    
+
 
                 $json_array = json_decode($array1[5], true);
                 // var_dump($json_array);
